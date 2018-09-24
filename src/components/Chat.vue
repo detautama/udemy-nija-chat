@@ -36,9 +36,9 @@ export default {
   },
   created () {
     let ref = db.collection('messages').orderBy('timestamp')
-
     ref.onSnapshot(snapshot => {
       snapshot.docChanges.forEach(change => {
+        console.log(change)
         if (change.type == 'added') {
           let doc = change.doc
           this.messages.push({
