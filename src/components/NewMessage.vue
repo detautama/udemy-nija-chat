@@ -1,9 +1,9 @@
 <template>
   <div class="new-message">
-    <form style="padding-bottom:10px;" @submit.prevent="addMessage">
+    <form style="padding-bottom:50px;" @submit.prevent="addMessage">
       <label for="new-message">New Message (enter to add)</label>
       <input type="text" name="new-message" v-model="newMessage">
-      <button style="float:right" class="btn waves-effect waves-light">SEND<i class="material-icons right">send</i></button>
+      <button @click="addMessage" style="float:right" class="btn waves-effect waves-light">SEND<i class="material-icons right">send</i></button>
       <p class="red-text" v-if="feedback">{{feedback}}</p>
     </form>
   </div>
@@ -33,8 +33,6 @@ export default {
         })
         this.newMessage = null
         this.feedback = null
-      } else {
-        this.feedback = "You must be enter a message in order to send one"
       }
     }
   }
